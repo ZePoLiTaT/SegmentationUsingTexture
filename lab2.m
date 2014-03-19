@@ -61,7 +61,9 @@
     im_feli = rgb2gray(im_feli);
     comat_im_feli = graycomatrix(im_feli, 'Offset',[0 2], 'Symmetric', true);
     stats_im_feli = graycoprops(comat_im_feli,{'Contrast','Homogeneity', 'Energy', 'Correlation'})
+    stats_im_feli = struct2array( stats_im_feli )
  end
+
  
  function test_comatrices()
     a =[0 2 0 2 0
