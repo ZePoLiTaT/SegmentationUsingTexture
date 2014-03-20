@@ -2,34 +2,162 @@
 
     clear; clc; close all;
 
-    %test_segmentation_toy
-    %test_segmentation;
+    %Test 1: Felino
+    %test_segmentation_feli;
     
-    test_classification;
+    %Test 2: Hand
+    %test_segmentation_hand;
+    
+    %Test 3: Ping Pong
+    %test_segmentation_ping_pong;
+    
+    %Test 4: Mosaic
+    test_segmentation_mosaic;
+    
+ end
+ 
+ %% Test 1: Felino
+ % 
+ function test_segmentation_feli
+    
+    im = imread('P2_seg/feli.tif');
+    w = 30; d = 3;
+    vd = [0 d];
+    
+    w = 13;
+    vd = [-3 2]; %; -2 -3; -2 2; -2 -2; -1 1; -1 -1];
+    %vd = [-3 2; -2 -3; -2 2; -2 -2; -1 1; -1 -1];
+    %load('mosaic_d11.mat');
+    
+    %Extract Features
+    im_features = generate_segmentation_data(im, w, vd, 8);
+    
+    %Normalize them
+    [R,C,F] = size(im_features);
+    text_features = reshape(im_features, R*C, F);
+    text_features = normalize_features( text_features );
+    im_features = reshape(text_features, R, C, F);
+    
+    figure;
+    subplot(1,2,1), region_growing_caller(im, 40);
+    subplot(1,2,2), region_growing_caller(im_features, 5.8);
+ end
+ 
+ %% Test 2: Hand
+ % 
+ function test_segmentation_hand
+    
+    im = imread('P2_seg/hand2.tif');
+    
+    % Test 1
+    %w = 13; d = 3;
+    %vd = [0 1; -1 0; -1 -1; 1 1];
 
+    % Test 2
+    %w = 3; d = 1;
+    %vd = [0 d; d d];
+    
+    % Test 3
+    w = 15; d = 1;
+    vd = [0 d; -d d; -d 0; -d -d];
+    
+    %load('mosaic_d11.mat');
+    
+    %Extract Features
+    im_features = generate_segmentation_data(im, w, vd, 8);
+    
+    %Normalize them
+    [R,C,F] = size(im_features);
+    text_features = reshape(im_features, R*C, F);
+    text_features = normalize_features( text_features );
+    im_features = reshape(text_features, R, C, F);
+    
+    figure;
+    subplot(1,2,1), region_growing_caller(im, 65);
+    
+    %subplot(1,2,2), region_growing_caller(im_features, 5.8);
+    %subplot(1,2,2), region_growing_caller(im_features(:,:,end-5:end), 2.566);
+    
+    %Test 3
+    subplot(1,2,2), region_growing_caller(im_features(:,:,end-5:end), 2.8015);
  end
 
- function test_segmentation_toy
-    % Toy image:
-%    im = zeros(5,4,3);
-%     im(:,:,1) = [ 50 45 100 101;
-%                   49 48 105 104;
-%                   200 47 2 3;
-%                   100 5 1 4;
-%                   101 102 10 300];
-%               
-%     im(:,:,2) = [ 50 45 100 101;
-%                   49 48 105 104;
-%                   200 47 2 3;
-%                   100 5 1 4;
-%                   101 102 10 300];
-%               
-%     im(:,:,3) = [ 50 45 100 101;
-%                   49 48 105 104;
-%                   200 47 2 3;
-%                   100 5 1 4;
-%                   101 102 10 300];
-              
+%% Test 3: Ping Pong
+% 
+function test_segmentation_ping_pong
+    
+    im = imread('P2_seg/pingpong2.tif');
+    
+    % Test 1
+    %w = 9; d = 1;
+    %vd = [0 d; -d d; -d 0; -d -d];
+    %nlvl = 8;
+    
+    % Test 2
+    %w = 3; d = 1;
+    %vd = [0 d; -d d; -d 0; -d -d];
+    %nlvl = 8;
+    
+    %Test 3
+    w = 30; d = 3;
+    vd = [0 d; -d d; -d 0; -d -d];
+    nlvl = 6;
+    
+    %load('mosaic_d11.mat');
+    
+    %Extract Features
+    im_features = generate_segmentation_data(im, w, vd, nlvl);
+    
+    %Normalize them
+    [R,C,F] = size(im_features);
+    text_features = reshape(im_features, R*C, F);
+    text_features = normalize_features( text_features );
+    im_features = reshape(text_features, R, C, F);
+    
+    figure;
+    subplot(1,2,1), region_growing_caller(im, 65);
+    
+    %Test 1
+    %hfe = im_features(:,:,7:9);
+    %hfe(:,:,4:6) = im_features(:,:,end-2:end);
+    %subplot(1,2,2), region_growing_caller(hfe, 2.259)
+    
+    %Test 2
+    subplot(1,2,2), region_growing_caller(im_features, 4.17);
+end 
+ 
+%% Test 4: Mosaic of textures
+function test_segmentation_mosaic
+ 
+    im = imread('P2_seg/mosaic8.tif');
+    
+    % Test 1
+    w = 30; d = 3;
+    vd = [0 d; -d d; -d 0; -d -d];
+    nlvl = 8;
+    
+    %load('mosaic_d11.mat');
+    
+    %Extract Features
+    im_features = generate_segmentation_data(im, w, vd, nlvl);
+    
+    %Normalize them
+    [R,C,F] = size(im_features);
+    text_features = reshape(im_features, R*C, F);
+    text_features = normalize_features( text_features );
+    im_features = reshape(text_features, R, C, F);
+    
+    figure;
+    subplot(1,2,1), region_growing_caller(im, 100);
+    
+    %Test 1
+    subplot(1,2,2), region_growing_caller(im_features, 1.5);
+    
+end
+
+
+%% Test function of the feature extractor with homogeneous figure
+function test_segmentation_homogeneous
     %Homogeneous image
     im = ones(6,7,3);
     im(4:6,:,:) = 120
@@ -37,35 +165,12 @@
     tic
     toy_features = texture_features_local(im, 3, 0, 1);
     toc
- end
+end
  
- function test_segmentation
+%% Tester to understand the graycomatrix and graycoprops functions with 
+%  the examples seen in the SSI class (slides)
+function test_segmentation_slides_example
  
-    im_feli = imread('P2_seg/feli.tif');
-    im_feli_gray = rgb2gray( im_feli );
-    
-    tic
-    im_feli_features = texture_features_local(im_feli, 11, 0,4);
-    toc
-    %features = nlfilter(im_feli_gray,[11 11],@get_texture_features);
-    
-    threshold = 10;
-    
-    % Region growing for color images without filter
-    [imlabels, lbl_stats] = region_growing(im_feli_features, threshold);
-    
- end
- 
- function test_classification()
-    im_feli = imread('P2_seg/feli.tif');
-    im_feli = rgb2gray(im_feli);
-    comat_im_feli = graycomatrix(im_feli, 'Offset',[0 2], 'Symmetric', true);
-    stats_im_feli = graycoprops(comat_im_feli,{'Contrast','Homogeneity', 'Energy', 'Correlation'})
-    stats_im_feli = struct2array( stats_im_feli )
- end
-
- 
- function test_comatrices()
     a =[0 2 0 2 0
         0 2 0 2 0
         0 2 0 2 0
@@ -81,14 +186,62 @@
     comat_a = graycomatrix(a, 'Offset',[0 1], 'NumLevels',4, 'GrayLimits', [0 3], 'Symmetric', true)
     comat_b = graycomatrix(b, 'Offset',[0 1], 'NumLevels',4, 'GrayLimits', [0 3], 'Symmetric', true)
 
-
     stats_a = graycoprops(comat_a,{'Contrast','Homogeneity', 'Energy', 'Correlation'})
     stats_b = graycoprops(comat_b,{'Contrast','Homogeneity', 'Energy', 'Correlation'})
 
+end
+ 
+
+%% Function for invoking with the nlfilter to calculate the statistics of
+%  a comatrix
+function x = nlfun(x, feature, d)
+    
+    x = graycomatrix(x, 'Offset',d, 'NumLevels',8, 'Symmetric', true ); %'Symmetric', true);
+    x = graycoprops(x,{feature});
+    x = struct2array(x);
+end
+ 
+ %% Invoker of the local texture feature extractor
+ %  This also displays all the obtained features in a figure per angle and
+ %  per distance.
+ function text_features = generate_segmentation_data(im, w, vd, numlvl) 
+    
+    im_gray = double( rgb2gray(im) );
+    im_gray = mat2gray(im_gray);
+  
+    tic
+    [text_features, ~] = texture_features_local(im_gray, w, vd, numlvl);
+    toc
+    
+    %text_features = nlfilter(im_gray, w, @(t) nlfun(t,'Contrast',dv));
+    %text_features(:,:,2) = nlfilter(im_gray, w, @(t) nlfun(t,'Homogeneity',dv));
+    %text_features(:,:,3) = nlfilter(im_gray, w, @(t) nlfun(t,'Energy',dv));
+    %text_features(:,:,4) = nlfilter(im_gray, w, @(t) nlfun(t,'Correlation',dv));
+  
+    text_features(:,:,end+1) = im(:,:,1);  %R
+    text_features(:,:,end+1) = im(:,:,2);  %G
+    text_features(:,:,end+1) = im(:,:,3);  %B
+    
+    for i=0 : size(vd)-1
+        figure
+        subplot(1,3,1), imagesc(text_features(:,:,1+i*3)); colormap(gray);
+        subplot(1,3,2), imagesc(text_features(:,:,2+i*3)); colormap(gray);
+        subplot(1,3,3), imagesc(text_features(:,:,3+i*3)); colormap(gray);
+    end
+    
+    figure
+    subplot(1,3,1), imagesc(text_features(:,:,end-2)); colormap(gray);
+    subplot(1,3,2), imagesc(text_features(:,:,end-1)); colormap(gray);
+    subplot(1,3,3), imagesc(text_features(:,:,end)); colormap(gray);
  end
  
-function stats_x = get_texture_features(x)
-    comat_x = graycomatrix(x, 'Offset',[0 1], 'Symmetric', true);
-    stats_x = graycoprops(comat_x,{'Contrast'});
-    stats_x = stats_x.Contrast;
-end
+ %% Invoker of the modified version of region growing.
+ %  The new function receives an RxC 
+ function region_growing_caller(im, threshold)
+ 
+    % Region growing for color images without filter
+    [imlabels, ~] = region_growing(im, threshold);
+    rgb = label2rgb(imlabels, 'spring', 'c', 'shuffle'); 
+    subimage(rgb);
+    
+ end

@@ -1,5 +1,5 @@
 function [imlabels, lbl_stats] = explore_queue(im, imlabels, lbl_stats, threshold, r0, c0, region)
-%EXPLORE_QUEUE_COLOR Expands a region of a color image given a starting pixel.
+%EXPLORE_QUEUE_COLOR Expands a region of a N-D feature vector given a starting pixel.
 %   The exploration is made using a queue using 8-neighborhood.
 %   Every time a new pixel is added to the region is removed from the 
 %   list of available random seeds to pick.
