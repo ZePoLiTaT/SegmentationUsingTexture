@@ -19,12 +19,12 @@ function v = computeFeatureVector(A)
 %v = normalize_features(v);
 
 %% rgb mean:
-%v = rgb_mean( A );
+v = rgb_mean( A );
 
 %% rgb mean + texture features:
-v = [texture_features(A) rgb_mean( A )];
-v = [rgb_mean( A ) texture_features(A)];
-v = normalize_features(v);
+% v = [texture_features(A) rgb_mean( A )];
+% v = [rgb_mean( A ) texture_features(A)];
+% v = normalize_features(v);
 
 %% CIELab mean
 

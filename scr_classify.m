@@ -35,7 +35,7 @@ end
 
 %converting data to weka
 %javaaddpath('/usr/share/java/weka.jar');
-javaaddpath('/home/evargasv/weka-3-6-10/weka.jar');
+javaaddpath('/home/evargasv/weka-3-6-11/weka.jar');
 import weka.*;
 
 %each feature needs a name
@@ -61,33 +61,47 @@ end
 wekaTrain = convertWekaDataset('training',f,ctrain);
 wekaTest = convertWekaDataset('testing',f,ctest);
 
+%% FOR Random Forest
+
 %Settings for the classifier
-v(1) = java.lang.String('-I');
-v(2) = java.lang.String('10');
-v(3) = java.lang.String('-K');
-v(4) = java.lang.String('0');
-v(5) = java.lang.String('-S');
-v(6) = java.lang.String('1');
-v(7) = java.lang.String('-depth');
-v(8) = java.lang.String('0');
-prm = cat(1,v(1:end));
+% v(1) = java.lang.String('-I');
+% v(2) = java.lang.String('10');
+% v(3) = java.lang.String('-K');
+% v(4) = java.lang.String('0');
+% v(5) = java.lang.String('-S');
+% v(6) = java.lang.String('1');
+% v(7) = java.lang.String('-depth');
+% v(8) = java.lang.String('0');
+% prm = cat(1,v(1:end));
+% 
+% %create classifier instance, and perform the evaluation
+% classifier = javaObject('weka.classifiers.trees.RandomForest');
+% 
+% classifier.setOptions(prm)
+% 
+% %build classifier model
+% classifier.buildClassifier(wekaTrain);
 
-%create classifier instance, and perform the evaluation
-classifier = javaObject('weka.classifiers.trees.RandomForest');
+%% FOR SVM:
 
-classifier.setOptions(prm)
+classifier = weka.classifiers.functions.SMO();     
+  classifier.setC(100);
+  k = weka.classifiers.functions.supportVector.Puk();
+  k.setOmega(1.0);
+  k.setSigma(1.0);
+  classifier.setKernel(k);  
+classifier.buildClassifier(wekaTrain); %% "data" here is the training data
 
-%build classifier model
-classifier.buildClassifier(wekaTrain);
-
-%testing with final confusion matrix
+%% testing with final confusion matrix
 cm = zeros(wekaTest.numClasses,wekaTest.numClasses);
+mx = zeros(1,wekaTest.numInstances);
 pmx = zeros(1,wekaTest.numInstances);
 predicted = zeros(wekaTest.numInstances,wekaTest.numClasses);
 for i=1:wekaTest.numInstances
 	instance = wekaTest.instance(i-1);
 	predicted = classifier.distributionForInstance(instance)';
-	[mx,pmx(i)] = max(predicted);
+    % maximum probability and maximum class(pmx)
+	[mx(i),pmx(i)] = max(predicted);
 	cm(instance.classValue+1,pmx(i)) = cm(instance.classValue+1,pmx(i))+1;
 end
 cm

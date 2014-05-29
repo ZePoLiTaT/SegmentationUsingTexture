@@ -6,4 +6,10 @@ Robert~M Haralick and Linda~G Shapiro.
 \newblock {\em Computer vision, graphics, and image processing},
   29(1):100--132, 1985.
 
+\bibitem{matlab}
+Mathworks.
+\newblock Documentation center.
+\newblock \url{http://www.mathworks.es/es/help/images/ref/graycomatrix.html}.
+\newblock Accessed: 2014-03-20.
+
 \end{thebibliography}

@@ -129,69 +129,30 @@ end
 %% Test 4: Mosaic of textures
 function test_segmentation_mosaic
  
-    g = @(w,sigma) fspecial('gaussian',w, sigma);
-    
     im = imread('P2_seg/mosaic8.tif');
     
-    imgaus = imfilter(im,g(31,9),'same'); %figure(20); imshow(imgaus);
-    imgaus2 = imfilter(im,g(9,0.5),'same'); 
-    imgausdif = abs(imgaus2 - imgaus); imagesc(imgausdif);
-    
-    
-    %BW2 = edge(rgb2gray(imgaus),'canny'); figure(30); imshow(BW2);
-    %se = strel('square',5); BWDIL = imdilate(BW2,se); figure(40); imshow(BWDIL);
-    
-    %imgausdif=im2bw(histeq(rgb2gray(imgausdif)), 0.55); imshow(ab);
-    
     % Test 1
-%     w = 30; d = 3;
-%     vd = [0 d; -d d; -d 0; -d -d];
-%     nlvl = 4;
-    
-    % Test 2
-%     w = 9; d = 3;
-%     vd = [0 d; -d d; -d 0; -d -d];
-%     nlvl = 6;
-    
-    % Test 3    
-%     w = 21; 
-%     vd = [0 3; 1 3; 2 3; 3 3; 4 3; 5 3];
-%     nlvl = 4;
-
-    % Test 4
-    w = 3; 
-    vd = [0 1; -1 1; -1 0; -1 -1];
-    nlvl = 8;    
+    w = 30; d = 3;
+    vd = [0 d; -d d; -d 0; -d -d];
+    nlvl = 8;
     
     %load('mosaic_d11.mat');
     
     %Extract Features
-%     im_features = generate_segmentation_data(im, w, vd, nlvl);
-%     im_features(:,:,end-2:end) = imgaus;
-%     im_features(:,:,end+1) = Ixy;
-
-    
-    
     im_features = generate_segmentation_data(im, w, vd, nlvl);
-    %im_features = nlfilter(rgb2gray(im), [w w], @(x) nlfun(x, 'Contrast', vd, nlvl) );
-
-%     %Normalize them
+    
+    %Normalize them
     [R,C,F] = size(im_features);
     text_features = reshape(im_features, R*C, F);
     text_features = normalize_features( text_features );
     im_features = reshape(text_features, R, C, F);
     
     figure;
-    subplot(1,2,1), region_growing_caller(imgaus, 30);
+    subplot(1,2,1), region_growing_caller(im, 100);
     
     %Test 1
-    %subplot(1,2,2), region_growing_caller(im_features, 5.2);
+    subplot(1,2,2), region_growing_caller(im_features, 1.5);
     
-    %Test 2
-    %subplot(1,2,2), region_growing_caller(im_features, 5.2);
-    
-    %Test 3
-    subplot(1,2,2), region_growing_caller(im_features, 1.1);
 end
 
 
@@ -233,9 +194,9 @@ end
 
 %% Function for invoking with the nlfilter to calculate the statistics of
 %  a comatrix
-function x = nlfun(x, feature, d, nlvl)
+function x = nlfun(x, feature, d)
     
-    x = graycomatrix(x, 'Offset',d, 'NumLevels',nlvl, 'Symmetric', true ); %'Symmetric', true);
+    x = graycomatrix(x, 'Offset',d, 'NumLevels',8, 'Symmetric', true ); %'Symmetric', true);
     x = graycoprops(x,{feature});
     x = struct2array(x);
 end
@@ -247,7 +208,7 @@ end
     
     im_gray = double( rgb2gray(im) );
     im_gray = mat2gray(im_gray);
-    
+  
     tic
     [text_features, ~] = texture_features_local(im_gray, w, vd, numlvl);
     toc
@@ -257,9 +218,9 @@ end
     %text_features(:,:,3) = nlfilter(im_gray, w, @(t) nlfun(t,'Energy',dv));
     %text_features(:,:,4) = nlfilter(im_gray, w, @(t) nlfun(t,'Correlation',dv));
   
-%     text_features(:,:,end+1) = im(:,:,1);  %R
-%     text_features(:,:,end+1) = im(:,:,2);  %G
-%     text_features(:,:,end+1) = im(:,:,3);  %B
+    text_features(:,:,end+1) = im(:,:,1);  %R
+    text_features(:,:,end+1) = im(:,:,2);  %G
+    text_features(:,:,end+1) = im(:,:,3);  %B
     
     for i=0 : size(vd)-1
         figure
@@ -268,10 +229,10 @@ end
         subplot(1,3,3), imagesc(text_features(:,:,3+i*3)); colormap(gray);
     end
     
-%     figure
-%     subplot(1,3,1), imagesc(text_features(:,:,end-2)); colormap(gray);
-%     subplot(1,3,2), imagesc(text_features(:,:,end-1)); colormap(gray);
-%     subplot(1,3,3), imagesc(text_features(:,:,end)); colormap(gray);
+    figure
+    subplot(1,3,1), imagesc(text_features(:,:,end-2)); colormap(gray);
+    subplot(1,3,2), imagesc(text_features(:,:,end-1)); colormap(gray);
+    subplot(1,3,3), imagesc(text_features(:,:,end)); colormap(gray);
  end
  
  %% Invoker of the modified version of region growing.
