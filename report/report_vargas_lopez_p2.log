@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.21)  20 MAR 2014 21:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.21)  20 MAR 2014 23:38
 entering extended mode
  %&-line parsing enabled.
 **report_vargas_lopez_p2.tex
@@ -715,17 +715,7 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(./report_vargas_lopez_p2.aux
-
-LaTeX Warning: Label `tb:param_feli' multiply defined.
-
-
-LaTeX Warning: Label `fig:feli_135' multiply defined.
-
-
-LaTeX Warning: Label `fig:feli_seg' multiply defined.
-
-)
+(./report_vargas_lopez_p2.aux)
 \openout1 = `report_vargas_lopez_p2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -740,7 +730,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
- (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count160
 \scratchdimen=\dimen199
@@ -809,141 +800,181 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 102.
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
 
-LaTeX Warning: Reference `alg:rg' on page 1 undefined on input line 120.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 123.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 123.
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 120--124
+<./fig/orientation.png, id=4, 244.915pt x 120.45pt>
+File: ./fig/orientation.png Graphic file (type png)
 
- []
+<use ./fig/orientation.png>
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
-
-Underfull \hbox (badness 1715) in paragraph at lines 138--139
-[]\OT1/ptm/b/n/10 Texture fea-tures (CHECorr): \OT1/ptm/m/n/10 Us-ing a global 
-co-
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+ <./fig/orientation.png (PNG copy)>]
+Underfull \hbox (badness 1715) in paragraph at lines 157--158
+[]\OT1/ptm/b/n/10 Texture fea-tures (CHECorr): \OT1/ptm/m/n/10 Us-ing a global 
+co-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 247--248
+Underfull \hbox (badness 2799) in paragraph at lines 268--269
 \OT1/ptm/m/n/10 the fea-tures con-trast, ho-mo-gene-ity and en-ergy for the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-<./fig/feli/fstats_135_n1_1.png, id=20, 472.76625pt x 376.40625pt>
+[2] <./fig/feli/fstats_135_n1_1.png, id=26, 472.76625pt x 376.40625pt>
 File: ./fig/feli/fstats_135_n1_1.png Graphic file (type png)
 
 <use ./fig/feli/fstats_135_n1_1.png>
-<./fig/feli/fstats_135_n1_n1.png, id=21, 485.815pt x 372.39125pt>
+<./fig/feli/fstats_135_n1_n1.png, id=27, 485.815pt x 372.39125pt>
 File: ./fig/feli/fstats_135_n1_n1.png Graphic file (type png)
 
 <use ./fig/feli/fstats_135_n1_n1.png>
-<./fig/feli/fres_all_58.png, id=22, 654.445pt x 233.87375pt>
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+<./fig/feli/patch_params.png, id=28, 419.166pt x 269.005pt>
+File: ./fig/feli/patch_params.png Graphic file (type png)
+
+<use ./fig/feli/patch_params.png>
+<./fig/feli/fres_all_58.png, id=29, 654.445pt x 233.87375pt>
 File: ./fig/feli/fres_all_58.png Graphic file (type png)
 
 <use ./fig/feli/fres_all_58.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./fig/hand/fstats_1_135_end_5.png, id=23, 562.1pt x 420.57124pt>
+<./fig/hand/fstats_1_135_end_5.png, id=30, 562.1pt x 420.57124pt>
 File: ./fig/hand/fstats_1_135_end_5.png Graphic file (type png)
 
 <use ./fig/hand/fstats_1_135_end_5.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./fig/hand/res_1_all_w15_end_5.png, id=24, 489.83pt x 192.72pt>
+<./fig/hand/res_1_all_w15_end_5.png, id=31, 489.83pt x 192.72pt>
 File: ./fig/hand/res_1_all_w15_end_5.png Graphic file (type png)
 
 <use ./fig/hand/res_1_all_w15_end_5.png>
+<./fig/pingpong/fstats_135_1_w3.png, id=32, 563.10374pt x 420.57124pt>
+File: ./fig/pingpong/fstats_135_1_w3.png Graphic file (type png)
+
+<use ./fig/pingpong/fstats_135_1_w3.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./fig/pingpong/res_135_1_w3.png, id=33, 640.3925pt x 208.78pt>
+File: ./fig/pingpong/res_135_1_w3.png Graphic file (type png)
+
+<use ./fig/pingpong/res_135_1_w3.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 3019) in paragraph at lines 307--308
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./fig/pingpong/fstats_d3_a135_w30.png, id=34, 563.10374pt x 420.57124pt>
+File: ./fig/pingpong/fstats_d3_a135_w30.png Graphic file (type png)
+
+<use ./fig/pingpong/fstats_d3_a135_w30.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./fig/pingpong/im_feat_all_d3_w30.png, id=35, 730.73pt x 265.99374pt>
+File: ./fig/pingpong/im_feat_all_d3_w30.png Graphic file (type png)
+
+<use ./fig/pingpong/im_feat_all_d3_w30.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 415--416
 \OT1/ptm/m/n/10 cor-rectly clas-si-fied for each of the fea-tures ex-trac-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 
  []
 
-[2 <./fig/feli/fstats_135_n1_1.png (PNG copy)> <./fig/feli/fstats_135_n1_n1.png
- (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+[3 <./fig/feli/fstats_135_n1_1.png (PNG copy)> <./fig/feli/fstats_135_n1_n1.png
+ (PNG copy)> <./fig/feli/patch_params.png (PNG copy)> <./fig/feli/fres_all_58.p
+ng (PNG copy)> <./fig/hand/fstats_1_135_end_5.png (PNG copy)> <./fig/hand/res_1
+_all_w15_end_5.png (PNG copy)>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
 
-Underfull \hbox (badness 3068) in paragraph at lines 345--348
+Underfull \hbox (badness 3068) in paragraph at lines 450--453
 []\OT1/ptm/m/n/10 In or-der to or-ga-nize the tasks to de-velop as well
  []
 
 
-Underfull \hbox (badness 3657) in paragraph at lines 345--348
+Underfull \hbox (badness 3657) in paragraph at lines 450--453
 \OT1/ptm/m/n/10 as the ver-sion con-trol of the code, the tool \OT1/ptm/b/n/10 
 github
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--348
+Underfull \hbox (badness 10000) in paragraph at lines 450--453
 
  []
 
-[3 <./fig/feli/fres_all_58.png (PNG copy)> <./fig/hand/fstats_1_135_end_5.png (
-PNG copy)> <./fig/hand/res_1_all_w15_end_5.png (PNG copy)>]
-(./report_vargas_lopez_p2.bbl) [4
+[4 <./fig/pingpong/fstats_135_1_w3.png (PNG copy)> <./fig/pingpong/res_135_1_w3
+.png (PNG copy)> <./fig/pingpong/fstats_d3_a135_w30.png (PNG copy)> <./fig/ping
+pong/im_feat_all_d3_w30.png (PNG copy)>] (./report_vargas_lopez_p2.bbl
+Underfull \hbox (badness 4403) in paragraph at lines 10--14
+[]\OT1/ptm/m/n/10 Mathworks.  Doc-u-men-ta-tion cen-ter.  $http : / / www .
+ []
+
+) [5
 
 ]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5
+[6
 
-] [6] (./report_vargas_lopez_p2.aux)
+] [7] (./report_vargas_lopez_p2.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 17565 strings out of 495061
- 326815 string characters out of 1182621
+ 17610 strings out of 495061
+ 328033 string characters out of 1182621
  532220 words of memory out of 3000000
- 20392 multiletter control sequences out of 15000+50000
+ 20429 multiletter control sequences out of 15000+50000
  43206 words of font info for 90 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  56i,11n,56p,1734b,1745s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -960,9 +991,9 @@ crr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fon
 ts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on report_vargas_lopez_p2.pdf (6 pages, 336055 bytes).
+Output written on report_vargas_lopez_p2.pdf (7 pages, 494346 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
